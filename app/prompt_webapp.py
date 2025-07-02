@@ -92,13 +92,13 @@ if st.session_state.chat_messages:
     for msg in st.session_state.chat_messages:
         role = msg["role"].capitalize()
         content += f"{role}:\n{msg['content']}\n\n"
-
-    st.download_button(
-        label=" Download Conversation",
-        data=content,
-        file_name=file_name,
-        mime="text/markdown" if export_format.startswith("Markdown") else "text/plain"
-    ) 
+# ------------------------ Download Button ------------------------
+st.download_button(
+    label="📥 Download Conversation",
+    data=content,
+    file_name=file_name,
+    mime="text/markdown" if export_format.startswith("Markdown") else "text/plain"
+)
 
 # ------------------------ Feedback ------------------------
 st.divider()
@@ -111,7 +111,8 @@ if st.button("Submit Feedback"):
             f.write(user_feedback + "\n---\n")
         st.success("✅ Thanks for your feedback!")
     else:
-        st.warning("Please enter some feedback before submitting.")
-        
+        st.warning("⚠️ Please enter some feedback before submitting.")
+
+# ------------------------ Footer ------------------------
 st.divider()
-st.markdown(" Built by Prasad | Powered by OpenAI | V1.0")
+st.markdown("🧠 Built by Prasad | Powered by OpenAI | V1.0")
