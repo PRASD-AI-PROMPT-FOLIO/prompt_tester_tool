@@ -98,7 +98,20 @@ if st.session_state.chat_messages:
         data=content,
         file_name=file_name,
         mime="text/markdown" if export_format.startswith("Markdown") else "text/plain"
-    )
+    ) 
 
+# ------------------------ Feedback ------------------------
+st.divider()
+st.subheader("💬 Feedback")
+user_feedback = st.text_area("What do you think about this tool?")
+
+if st.button("Submit Feedback"):
+    if user_feedback.strip():
+        with open("logs/feedback.txt", "a", encoding="utf-8") as f:
+            f.write(user_feedback + "\n---\n")
+        st.success("✅ Thanks for your feedback!")
+    else:
+        st.warning("Please enter some feedback before submitting.")
+        
 st.divider()
 st.markdown(" Built by Prasad | Powered by OpenAI | V1.0")
