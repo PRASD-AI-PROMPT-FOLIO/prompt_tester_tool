@@ -1,4 +1,4 @@
-🧠 Prompt Testing Results Log
+  Prompt Testing Results Log
 ========================================
 
 Prompt 1: Write a poem which starts with letter P, up to 30 lines
